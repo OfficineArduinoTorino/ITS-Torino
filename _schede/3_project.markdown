@@ -13,6 +13,8 @@ img: /img/3_Breadboard.png
 - Giordanino
 - Vergnasco
 
+Codes and materials for this project can be found [here](https://github.com/OfficineArduinoTorino/ITS-Torino/tree/master/Final%20Projects/gruppo%203%20Domotica/progetto%20casa)
+
 # Progetto Domotica
 
 Il progetto permette all’utente la visione e il controllo dei consumi all’ interno di un’abitazione. Il progetto prevede la realizzazione di un dispositivo, da installare su un impianto già esistente, in grado di controllare il consumo della corrente. Questi dati potranno essere visibili in un'unica interfaccia, su una pagina web o tramite un’app. appositamente create.

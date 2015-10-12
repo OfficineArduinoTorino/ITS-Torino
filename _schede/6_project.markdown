@@ -11,6 +11,9 @@ img: /img/TAPP_1.png
 - Louis
 - Flavio
 
+Codes and materials for this project can be found [here](https://github.com/OfficineArduinoTorino/ITS-Torino/tree/master/Final%20Projects/gruppo%206%20TAPP)
+
+
 
 <div class="img_row">
 	<img class="col one" src="{{ site.baseurl }}/img/TAPP_1.png" alt="" title=""/>

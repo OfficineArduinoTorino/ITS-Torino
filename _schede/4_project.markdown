@@ -13,6 +13,9 @@ img: /img/trash.jpg
 - Marco
 - Giorgio
 
+
+Codes and materials for this project can be found [here](https://github.com/OfficineArduinoTorino/ITS-Torino/tree/master/Final%20Projects/gruppo%204%20Smart%20Trash)
+
 # INFORMAZIONI GRUPPO:
 Il nostro team è formato da quattro persone: Federica Anzoise, Giorgio Mariotti, Veronica Vacca e Marco Portigliatti. Siamo tutti studenti del ITS-ICT Piemonte, indirizzo Mobile App Design. L’età media si aggira intorno ai 20 anni. Ognuno di noi ha delle capacità tecniche o artistiche differenti tra loro, questo ci aiuta a suddividere il lavoro in base alle competenze per poter sviluppare al meglio il progetto, anche se ognuno di noi partecipa attivamente ad ogni fase di progettazione, per avere una conoscenza a 360 gradi di ogni aspetto strutturale e progettuale del prototipo stesso.
 

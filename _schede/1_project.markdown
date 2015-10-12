@@ -13,6 +13,7 @@ img: /img/mirror.png
 - Alexandra Maria
 - Jari
 
+Codes and materials for this project can be found [here](https://github.com/OfficineArduinoTorino/ITS-Torino/tree/master/Final%20Projects/gruppo%201%20Smart%20Mirror)
 
 # The idea
 We had the idea to create a mirror, a smart mirror, to allow the users to save time in the morning and become aware of  the information they want to know.

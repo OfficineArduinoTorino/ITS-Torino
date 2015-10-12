@@ -6,10 +6,12 @@ img: /img/nabb.png
 ---
 
 # Gruppo
-- Matteo Bonino
-- Ivan Armentano
-- Davide Natalotto
-- Francesco Borrello
+- Matteo
+- Ivan 
+- Davide 
+- Francesco 
+
+Codes and materials for this project can be found [here](https://github.com/OfficineArduinoTorino/ITS-Torino/tree/master/Final%20Projects/gruppo%207%20NABB/PhisicalComputing/GiocoNABB)
 
 # Introduzione
 
