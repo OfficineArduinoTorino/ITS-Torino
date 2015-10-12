@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="it">
+<head>
+	<title>Pulse</title>
+	<meta charset="utf-8"/>
+	<meta name = "viewport" content = "width=device-width"/>
+	<link rel="stylesheet" media="only screen and (min-width: 768px)" href="big.css"/>
+	<link rel="stylesheet" media="only screen and (max-width: 768px)" href="small.css"/>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<div id="container">
+		<div id="header"></div>
+
+		<div id="content-l">
+
+			<h1>What?</h1>
+
+			<p>Pulse legge i battiti cardiaci tramite degli elettrodi collegati ad arduino e restituisce i dati su questa pagina web.</p>
+
+			<h1>Who?</h1>
+
+			<p>Chi ha problemi di cuore può utilizzare Pulse per tenersi sotto controllo e comunicare i suoi dati ai medici in caso di necessità.</p>
+
+			<h1>Why?</h1>
+
+			<p>Il nostro obiettivo è fornire un supporto a chi ha problemi di cuore.</p>
+
+		</div>
+		<div id="content-r">
+			<h1>Dati</h1>
+
+		<div id="dati">
+
+		<h2>Pulsazioni cardiache</h2>
+
+		<div class="pins">
+
+			<div class="pin" id="A0">
+			<p class="label">A0</p>
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">			
+			  <rect width="40" height="255"/>
+			</svg>
+			<p class="val">255</p>
+		</div>
+
+		</div>
+
+	</div>	
+
+	<div id="script">
+	<script type="text/javascript">
+		function setVal(pin, value) {
+			//value goes from 0 to 1023			
+			$('#'+pin+' rect').attr('height', value);
+			$('#'+pin+' .val').css('margin-top', -10-255+(value));
+			$('#'+pin+' .val').html(value);
+		}
+		function refresh() {
+			  	$.get('/arduino/inputs/', function(json_response){
+			  				console.log(json_response);			  				
+			  				for (var i = 0; i < 6; i++) {
+			  					pinny = "A"+i;			  					
+			  					val = json_response[pinny];			  							  			
+				  				setVal(pinny , val);
+				  			}
+				  		}
+				  	);			  	
+	  		}	
+	  	window.setInterval(refresh, 50);
+	</script>
+	</div>
+
+		</div>
+
+		<div id="footer">
+			<p>Progetto finale di Physical Computing</p>
+			<p>Gruppo 5: Valentina Cavagnino, Simone Mittica, Francesca Sutera e Davide Valentino</p>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

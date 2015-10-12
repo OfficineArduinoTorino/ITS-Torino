@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<head>
+
+<meta charset="utf-8">
+<title>Domotica</title>
+
+<link rel="stylesheet" type="text/css" href="s.css">
+
+<script type="text/javascript" src="zepto.min.js"></script>
+
+<style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  margin: 2em;
+
+}
+body {
+  height: 100%;
+  margin: 0;
+}
+input {
+  display: block;
+  opacity: 0;
+}
+label {
+  width: 70px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background: rgb(10, 189, 189);
+  border-radius: 50px;
+  transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
+  margin-bottom: 10px;
+}
+
+label:after {
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  content: '';
+  position: absolute;
+  background: #f0f0f0;
+  border-radius: 81px;
+}
+
+input:checked + label {
+  background: rgb(0, 151, 157);
+}
+input:checked + label:after {
+  left: auto;
+  right: 0;
+}
+h1 {
+  font: sans-serif;
+  color: rgb(0, 151, 157);
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p {
+  font: normal 1em/1em sans-serif;
+  color: rgb(0, 151, 157);
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+</style>
+
+</head>
+
+<body>
+  	<div id="container">
+		<h1>Consumi:</h1></br/>
+		<p id="soggiorno">Soggiorno: 0 Kw</p><br/>
+		<p id="cucina">Cucina: 0 Kw</p><br/>
+		<p id="camera">Camera: 0 Kw</p><br/>
+		<p id="bagno">Bagno: 0 Kw</p><br/>
+		<p id="terrazzo">Terrazzo: 0 Kw</p><br/><br/>
+		<p id="totale">Totale: 0 Kw</p><br/>
+
+		<hr/><br/><h1>Soggiorno:</h1><br/>
+
+	    <p>Luci</p><input id="checkboxA2" type="checkbox" value="1" onclick="checkboxA2(this);"><label for="checkboxA2"></label>
+	    <p>Televisore</p><input id="checkboxA1" type="checkbox" onclick="checkboxA1(this);"><label for="checkboxA1"></label>
+	    <p>PC</p><input id="checkboxA0" type="checkbox" onclick="checkboxA0(this);"><label for="checkboxA0"></label>
+
+		<hr/><br/><h1>Cucina:</h1><br/>
+
+	    <p>Luci</p><input id="checkbox13" type="checkbox" onclick="checkbox13(this);"><label for="checkbox13"></label>
+	    <p>Lavastoviglie</p><input id="checkbox12" type="checkbox" onclick="checkbox12(this);"><label for="checkbox12"></label>
+	    <p>Forno</p><input id="checkbox11" type="checkbox" onclick="checkbox11(this);"><label for="checkbox11"></label>
+	    <p>Microonde</p><input id="checkbox10" type="checkbox" onclick="checkbox10(this);"><label for="checkbox10"></label>
+	    <p>Frigo</p><input id="checkbox9" type="checkbox" onclick="checkbox9(this);"><label for="checkbox9"></label>
+
+		<hr/><br/><h1>Camera da letto:</h1><br/>
+
+	    
+	    <p>Luci</p><input id="checkbox8" type="checkbox" onclick="checkbox8(this);"><label for="checkbox8"></label>
+	    <p>Televisore</p><input id="checkbox7" type="checkbox" onclick="checkbox7(this);"><label for="checkbox7"></label>
+
+	    <hr/><br/><h1>Bagno:</h1><br/>
+
+	    <p>Luci</p><input id="checkbox6" type="checkbox" onclick="checkbox6(this);"><label for="checkbox6"></label>
+	    <p>Lavatrice</p><input id="checkbox5" type="checkbox" onclick="checkbox5(this);"><label for="checkbox5"></label>
+	    <p>Phon</p><input id="checkbox4" type="checkbox" onclick="checkbox4(this);"><label for="checkbox4"></label>
+
+        <hr/><br/><h1>Terrazzo:</h1><br/>
+
+	    <p>Luci</p><input id="checkbox3" type="checkbox" onclick="checkbox3(this);"><label for="checkbox3"></label>
+
+		<script type="text/javascript">
+
+		var ca2 = 0;
+		var ca1 = 0;
+		var ca0 = 0;
+		var c13 = 0;
+		var c12 = 0;
+		var c11 = 0;
+		var c10 = 0;
+		var c9  = 0;
+		var c8  = 0;
+		var c7  = 0;
+		var c6  = 0;
+		var c5  = 0;
+		var c4  = 0;
+		var c3  = 0;
+
+		var somma = 0;
+		var blackout = 12;
+
+		function checkboxA2(cb) {
+			var kw = 1;
+		  	if(cb.checked){ca2= kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/16');
+		  	}
+		  	else{ca2= 0;
+		  	somma -= kw;
+			//$.get('/arduino/relay/916');
+		  	}
+  			displaySoggiorno();}
+
+			function checkboxA1(cb) {
+			var kw = 1;
+		  	if(cb.checked){ca1= kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/15');
+		  	}
+		  	else{ca1= 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/915');
+		  	}
+  			displaySoggiorno();}
+
+  			function checkboxA0(cb) {
+  			var kw = 1;
+		  	if(cb.checked){ca0 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/14');
+		  	}
+		  	else{ca0 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/914');
+		  	}
+  			displaySoggiorno();}
+
+  			function checkbox13(cb) {
+  			var kw = 1;
+		  	if(cb.checked){c13 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/13');
+		  	}
+		  	else{c13 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/913');
+		  	}
+  			displayCucina();}
+
+  			function checkbox12(cb) {
+  			var kw = 3;
+		  	if(cb.checked){c12 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/12');
+		  	}
+		  	else{c12 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/912');
+		  	}
+  			displayCucina();}
+
+  			function checkbox11(cb) {
+  			var kw = 5;
+		  	if(cb.checked){c11 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/11');
+		  	}
+		  	else{c11 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/911');
+		  	}
+  			displayCucina();}
+
+  			function checkbox10(cb) {
+  			var kw = 3;
+		  	if(cb.checked){c10 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/10');
+		  	}
+		  	else{c10 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/910');
+		  	}
+  			displayCucina();}
+
+  			function checkbox9(cb) {
+  			var kw = 1;
+		  	if(cb.checked){c9 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/9');
+		  	}
+		  	else{c9 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/99');
+		  	}
+  			displayCucina();}
+
+  			function checkbox8(cb) {
+  			var kw = 1;
+		  	if(cb.checked){c8 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/8');
+		  	}
+		  	else{c8 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/98');
+		  	}
+  			displayCamera();}
+
+  			function checkbox7(cb) {
+  			var kw = 1;
+		  	if(cb.checked){c7 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/7');
+		  	}
+		  	else{c7 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/97');
+		  	}
+  			displayCamera();}
+
+  			function checkbox6(cb) {
+  			var kw = 1;
+		  	if(cb.checked){c6 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/6');
+		  	}
+		  	else{c6 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/96');
+		  	}
+  			displayBagno();}
+
+  			function checkbox5(cb) {
+  			var kw = 5;
+		  	if(cb.checked){c5 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/5');
+		  	}
+		  	else{c5 = 0;
+		  	somma -= kw;
+		    //$.get('/arduino/relay/95');
+			}
+  			displayBagno();}
+
+  			function checkbox4(cb) {
+  			var kw = 3;
+		  	if(cb.checked){c4 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/4');
+		 	}
+		  	else{c4 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/94');
+		  	}
+  			displayTerrazzo();}
+
+  			function checkbox3(cb) {
+  			var kw = 1;
+		  	if(cb.checked){c3 = kw;
+		  	somma += kw;
+		  	cntBlackOut();
+		  	//$.get('/arduino/relay/3');
+		  	}
+		  	else{c3 = 0;
+		  	somma -= kw;
+		  	//$.get('/arduino/relay/93');
+		  	}
+  			displayTerrazzo();}
+
+			function displaySoggiorno() {
+				msg = ca2 + ca1 + ca0;
+				document.getElementById("soggiorno").innerHTML = "Soggiorno: " + msg + " Kw";
+				document.getElementById("totale").innerHTML = "Totale: " + somma + " Kw";}
+
+			function displayCucina() {
+				msg = c13 + c12 + c11 + c10 + c9;
+				document.getElementById("cucina").innerHTML = "Cucina: " + msg + " Kw";
+				document.getElementById("totale").innerHTML = "Totale: " + somma + " Kw";}
+
+			function displayCamera() {
+				msg = c8 + c7;
+				document.getElementById("camera").innerHTML = "Camera: " + msg + " Kw";
+				document.getElementById("totale").innerHTML = "Totale: " + somma + " Kw";}
+
+			function displayBagno() {
+				msg = c5 + c4;
+				document.getElementById("bagno").innerHTML = "Bagno: " + msg + " Kw";
+				document.getElementById("totale").innerHTML = "Totale: " + somma + " Kw";}
+
+			function displayTerrazzo() {
+				msg = c3;
+				document.getElementById("terrazzo").innerHTML = "Terrazzo: " + msg + " Kw";
+				document.getElementById("totale").innerHTML = "Totale: " + somma + " Kw";}
+
+			function cntBlackOut(){
+				somma = ca2+ca1+ca0+c13+c12+c11+c10+c9+c8+c7+c6+c5+c4+c3;
+				if (somma>9 && somma < blackout) alert("ATTENZIONE!! WARNING!! SPEGNERE QUALCHE COSA PRIMA DI ACCENDERE ALTRO. RISCHIO BLACKOUT!!");
+				else if(somma >= blackout) alert("BLACKOUT!!");
+			}
+    	</script>
+	</div>
+</body>

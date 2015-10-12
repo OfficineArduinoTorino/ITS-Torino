@@ -1,0 +1,11 @@
+gcc -o ./mysniffex -I/usr/local/mysql/include -DBIG_JOINS=1 -fno-strict-aliasing -g -DNDEBUG mysniffex.c -L/usr/local/mysql/lib -lmysqlclient -lpthread -lz -lm -ldl -lpcap
+
+install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql/lib/libmysqlclient.18.dylib ./mysniffex
+
+gcc -o ./mysniffex_speed -I/usr/local/mysql/include -DBIG_JOINS=1 -fno-strict-aliasing -g -DNDEBUG mysniffex_speed.c -L/usr/local/mysql/lib -lmysqlclient -lpthread -lz -lm -ldl
+
+install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql/lib/libmysqlclient.18.dylib ./mysniffex_speed
+
+gcc -o ./serialwrite -I/usr/local/mysql/include -DBIG_JOINS=1 -fno-strict-aliasing -g -DNDEBUG serialwrite.c -L/usr/local/mysql/lib -lmysqlclient -lpthread -lz -lm -ldl
+
+install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql/lib/libmysqlclient.18.dylib ./serialwrite

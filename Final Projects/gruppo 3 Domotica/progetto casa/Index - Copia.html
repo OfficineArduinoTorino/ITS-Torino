@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<head>
+
+<meta charset="utf-8">
+<title>Domotica</title>
+
+<link rel="stylesheet" type="text/css" href="s.css">
+
+<script type="text/javascript" src="zepto.min.js"></script>
+
+<style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  margin: 2em;
+
+}
+body {
+  height: 100%;
+  margin: 0;
+
+  font: normal 1em/1em sans-serif;
+  color: rgb(0, 151, 157);
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+input {
+  display: block;
+  opacity: 0;
+}
+label {
+  width: 70px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background: rgb(189, 189, 189);
+  border-radius: 50px;
+  transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
+  margin-bottom: 10px;
+}
+
+label:after {
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  content: '';
+  position: absolute;
+  background: #f0f0f0;
+  border-radius: 81px;
+}
+
+input:checked + label {
+  background: rgb(0, 151, 157);
+}
+input:checked + label:after {
+  left: auto;
+  right: 0;
+}
+h1 {
+  font: sans-serif;
+  color: rgb(0, 151, 157);
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p {
+  font: normal 1em/1em sans-serif;
+  color: rgb(0, 151, 157);
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+</style>
+
+</head>
+
+<body>
+  <div id="container">
+	<h1>Consumi</h1></br/>
+	Soggiorno: <p id="soggiorno"></p><br/>
+	Cucina: <p id="cucina"></p><br/>
+	<p id="camera"></p><br/>
+	<p id="bagno"></p><br/>
+	<p id="terrazzo"></p><br/>
+
+	<hr/><br/><h1>Soggiorno:</h1><br/>
+
+    <p>A2</p><input id="checkboxA2" type="checkbox" onclick="checkboxA2(this);"><label for="checkboxA2"></label>
+
+	<p>A1</p><input type="checkbox" id="checkboxA1" />
+	<label for="checkboxA1"></label>
+
+	<p>A0</p><input type="checkbox" id="checkboxA0" />
+	<label for="checkboxA0"></label>
+
+	<hr/><br/><h1>cucina</h1><br/>
+    <p>13</p><input type="checkbox" id="checkbox13" />
+	<label for="checkbox13"></label>
+
+    <p>12</p><input type="checkbox" id="checkbox12" />
+	<label for="checkbox12"></label>
+
+    <p>11</p><input type="checkbox" id="checkbox11" />
+    <label for="checkbox11"></label>
+
+    <p>10</p><input type="checkbox" id="checkbox10" />
+    <label for="checkbox10"></label>
+
+	<p>09</p><input type="checkbox" id="checkbox9" />
+	<label for="checkbox9"></label>
+
+	<hr/><br/><h1>camera da letto</h1><br/>
+    <p>08</p><input type="checkbox" id="checkbox8" />
+    <label for="checkbox8"></label>
+
+	<p>07</p><input type="checkbox" id="checkbox7" />
+	<label for="checkbox7"></label>
+
+	<hr/><br/><h1>bagno</h1><br/>
+	<p>06</p><input type="checkbox" id="checkbox6" />
+	<label for="checkbox6"></label>
+
+    <p>05</p><input type="checkbox" id="checkbox5" />
+	<label for="checkbox5"></label>
+
+    <p>04</p><input type="checkbox" id="checkbox4" />
+	<label for="checkbox4"></label>
+
+	<hr/><br/><h1>terrazzo</h1><br/>
+    <p>03</p><input type="checkbox" id="checkbox3" />
+    <label for="checkbox3"></label>
+
+    <p>02</p><input type="checkbox" id="checkbox2" />
+    <label for="checkbox2"></label>
+
+		<script type="text/javascript">
+/*
+		//Consume
+		var ca2 = 1;
+		var ca1 = 1;
+		var ca0 = 1;
+		var c13 = 1;
+		var c12 = 1;
+		var c11 = 1;
+		var c10 = 1;
+		var c09 = 1;
+		var c08 = 1;
+		var c07 = 1;
+		var c06 = 1;
+		var c05 = 1;
+		var c04 = 1;
+		var c03 = 1;
+		var c02 = 1;
+
+		var s1 = (ca2 + ca1 + ca0);
+		document.getElementById("soggiorno").innerHTML = "Soggiorno: " + s1;
+
+		var s2 = (c13 + c12 + c11 + c10 + c09);
+		document.getElementById("cucina").innerHTML = "Cucina: " + s2;
+
+		var s3 = (c08 + c07);
+		document.getElementById("camera").innerHTML = "Camera da Letto: " + s3;
+
+		var s4 = (c06 + c05 + c04);
+		document.getElementById("bagno").innerHTML = "Bagno: " + s4;
+
+		var s5 = (c03 + c02);
+		document.getElementById("terrazzo").innerHTML = "Terrazzo: " + s5;
+
+
+		$(document).ready(function() {
+*/
+		function checkboxA2(cb) {
+		  var out;
+		  if(cb.checked){
+		    out = 1;
+		    //relayOnA2();
+		  }
+		  else
+		  {
+		    out = 0;
+		    //relayOffA2();
+		  }
+
+  		displaySoggiorno(out);
+		}
+
+			function displaySoggiorno(msg) {
+			  document.getElementById("soggiorno").innerHTML = msg;
+			}
+/*
+		  //Output A2
+		  $('#checkboxA2').click(function(ca2) {
+			if ($(this).is(':checked')) {
+			  //ON
+			  relayOnA2();
+			  return ca2 = 5; 
+			} else {
+			  //OFF
+			  relayOffA2();
+			}
+		  });
+
+		  //Output A1
+		  $('#checkboxA1').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOnA1();
+		  	} else {
+		  	  //OFF
+		  	  relayOffA1();
+		  	}
+		  });
+
+		  //Output A0
+		  $('#checkboxA0').click(function() {
+			if ($(this).is(':checked')) {
+			  //ON
+			  relayOnA0();
+			} else {
+			  //OFF
+			  relayOffA0();
+			}
+		  });
+
+		  //Output 13
+		  $('#checkbox13').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn13();
+		  	} else {
+		  	  //OFF
+		  	  relayOff13();
+		  	}
+		  });
+
+		  //Output 12
+		  $('#checkbox12').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn12();
+		  	} else {
+		  	  //OFF
+		  	  relayOff12();
+		  	}
+		  });
+
+		  //Output 11
+		  $('#checkbox11').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn11();
+		  	} else {
+		  	  //OFF
+		  	  relayOff11();
+		  	}
+		  });
+
+		  //Output 10
+		  $('#checkbox10').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn10();
+		  	} else {
+		  	  //OFF
+		  	  relayOff10();
+		  	}
+		  });
+
+		  //Output 9
+		  $('#checkbox9').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn9();
+		  	} else {
+		  	  //OFF
+		  	  relayOff9();
+		  	}
+		  });
+
+		  //Output 8
+		  $('#checkbox8').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn8();
+		  	} else {
+		  	  //OFF
+		  	  relayOff8();
+		  	}
+		  });
+
+		  //Output 7
+		  $('#checkbox7').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn7();
+		  	} else {
+		  	  //OFF
+		  	  relayOff7();
+		  	}
+		  });
+
+		  //Output 6
+		  $('#checkbox6').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn6();
+		  	} else {
+		  	  //OFF
+		  	  relayOff6();
+		  	}
+		  });
+
+		  //Output 5
+		  $('#checkbox5').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn5();
+		  	} else {
+		  	  //OFF
+		  	  relayOff5();
+		  	}
+		  });
+
+		  //Output 4
+		  $('#checkbox4').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn4();
+		  	} else {
+		  	  //OFF
+		  	  relayOff4();
+		  	}
+		  });
+
+		  //Output 3
+		  $('#checkbox3').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn3();
+		  	} else {
+		  	  //OFF
+		  	  relayOff3();
+		  	}
+		  });
+
+		  //Output 2
+		  $('#checkbox2').click(function() {
+		  	if ($(this).is(':checked')) {
+		  	   //ON
+		  	   relayOn2();
+		  	} else {
+		  	  //OFF
+		  	  relayOff2();
+		  	}
+		  });
+		});
+		*/
+
+		function relayOnA2() {
+		  //send ON [A2 --> 16] to arduino
+		  $.get('/arduino/relay/16', function() {});
+		}
+		function relayOffA2() {
+		  //send OFF [A2 --> 916] to arduino
+		  $.get('/arduino/relay/916', function() {});
+		}
+
+		function relayOnA1() {
+		  //send ON [A1 --> 15] to arduino
+		  $.get('/arduino/relay/15', function() {});
+		}
+		function relayOffA1() {
+		  //send OFF [A1 --> 915] to arduino
+		  $.get('/arduino/relay/915', function() {});
+		}
+
+		function relayOnA0() {
+		  //send ON [A0 --> 14] to arduino
+		  $.get('/arduino/relay/14', function() {});
+		}
+		function relayOffA0() {
+		  //send OFF [A0 --> 914] to arduino
+		  $.get('/arduino/relay/914', function() {});
+		}
+
+		function relayOn13() {
+		  //send ON [13 --> 13] to arduino
+		  $.get('/arduino/relay/13', function() {});
+		}
+		function relayOff13() {
+		  //send OFF [13 --> 913] to arduino
+		  $.get('/arduino/relay/913', function() {});
+		}
+
+		function relayOn12() {
+		  //send ON [12 --> 12] to arduino
+		  $.get('/arduino/relay/12', function() {});
+		}
+		function relayOff12() {
+		  //send OFF [12 --> 912] to arduino
+		  $.get('/arduino/relay/912', function() {});
+		}
+
+		function relayOn11() {
+		  //send ON [11 --> 11] to arduino
+		  $.get('/arduino/relay/11', function() {});
+		}
+		function relayOff11() {
+		  //send OFF [11 --> 911] to arduino
+		  $.get('/arduino/relay/911', function() {});
+		}
+
+		function relayOn10() {
+		  //send ON [10 --> 10] to arduino
+		  $.get('/arduino/relay/10', function() {});
+		}
+		function relayOff10() {
+		  //send OFF [10 --> 910] to arduino
+		  $.get('/arduino/relay/910', function() {});
+		}
+
+		function relayOn9() {
+		  //send ON [9 --> 9] to arduino
+		  $.get('/arduino/relay/9', function() {});
+		}
+		function relayOff9() {
+		  //send OFF [9 --> 99] to arduino
+		  $.get('/arduino/relay/99', function() {});
+		}
+
+		function relayOn8() {
+		  //send ON [8 --> 8] to arduino
+		  $.get('/arduino/relay/8', function() {});
+		}
+		function relayOff8() {
+		  //send OFF [8 --> 98] to arduino
+		  $.get('/arduino/relay/98', function() {});
+		}
+
+		function relayOn7() {
+		  //send ON [7 --> 7] to arduino
+		  $.get('/arduino/relay/7', function() {});
+		}
+		function relayOff7() {
+		  //send OFF [7 --> 97] to arduino
+		  $.get('/arduino/relay/97', function() {});
+		}
+
+		function relayOn6() {
+		  //send ON [6 --> 6] to arduino
+		  $.get('/arduino/relay/6', function() {});
+		}
+		function relayOff6() {
+		  //send OFF [6 --> 96] to arduino
+		  $.get('/arduino/relay/96', function() {});
+		}
+
+		function relayOn5() {
+		  //send ON [5 --> 5] to arduino
+		  $.get('/arduino/relay/5', function() {});
+		}
+		function relayOff5() {
+		  //send OFF [5 --> 95] to arduino
+		  $.get('/arduino/relay/95', function() {});
+		}
+
+		function relayOn4() {
+		  //send ON [4 --> 4] to arduino
+		  $.get('/arduino/relay/4', function() {});
+		}
+		function relayOff4() {
+		  //send OFF [4 --> 94] to arduino
+		  $.get('/arduino/relay/94', function() {});
+		}
+
+		function relayOn3() {
+		  //send ON [3 --> 3] to arduino
+		  $.get('/arduino/relay/3', function() {});
+		}
+		function relayOff3() {
+		  //send OFF [3 --> 3] to arduino
+		  $.get('/arduino/relay/93', function() {});
+		}
+
+		function relayOn2() {
+		  //send ON [2 --> 2] to arduino
+		  $.get('/arduino/relay/2', function() {});
+		}
+		function relayOff2() {
+		  //send OFF [2 --> 92] to arduino
+		  $.get('/arduino/relay/92', function() {});
+		}
+
+    	</script>
+	</div>
+</body>

@@ -1,0 +1,156 @@
+/***************************************************************/
+/*    Reset margin e padding per tutti gli elementi            */
+/***************************************************************/
+* {
+	margin: 0px;
+	padding: 0px;
+}
+/***************************************************************/
+/* Regole per tutti i dispositivi e per quelli più grandi      */
+/***************************************************************/
+
+body {
+	color: #333;
+	font-size: 90%;
+	font-family: "Orator Std Medium", Arial, Sans-Serif;
+	background-image: url(img/pulse1.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-color: white;
+}
+
+h1, h2 {
+	color: crimson;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	font-family: "Orator Std Medium";
+	font-size: 20px;
+	
+}
+
+p {
+	margin-bottom: 5px;
+}
+
+caption {
+	caption-side: bottom;
+	color: #3b085f;
+}
+
+th {
+	background-color: #aaa;
+}
+
+td {
+	background-color: #ddd;
+}
+
+th, td {
+	padding: 3px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+#A0{
+	width: 450px;
+	height: auto;
+	text-align:center;
+}
+#container {
+	width: 750px;
+	margin: 0 auto;
+	background-color: white;
+}
+
+#header {
+	width: 750px;
+	height: 200px;
+	background-image: url(img/pulselogo2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0% 50%;
+	border-bottom: 2px solid black;
+	background-color: white;
+}
+
+#content-l {
+	text-align: justify;
+	width: auto;
+	padding: 10px;
+	float: none;
+	background-color: white;
+}
+
+#content-r {
+	border-top: 1px dashed #3b085f;
+	text-align: center;
+	padding: 10px;
+	float: none;
+	background-color: white;
+}
+
+#footer {
+	padding-top: 5px;
+	text-align: center;
+	clear: both;
+	border-top: 1px dashed #3b085f;
+	font-size: 0.8em;
+	font-style: italic;
+	background-color: white;
+	width: 750px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+span {
+	color: #3b085f;
+	text-decoration: underline;
+}
+
+			svg {
+				width: 40px;
+				height: 255px;
+				margin: 20px 20px;				
+			}
+			rect {
+				fill: red;
+				margin-left: 50%;
+			}
+			#dati {
+				text-align: center;
+				background-color: white;
+			}
+			.pin {
+				float: left;
+				display: block;
+				color: #AAA;
+				background-color: white;
+				margin-right: auto;
+				margin-left: auto;
+				text-align:center;
+			}
+			.pin .label {
+				margin-bottom: -10px;
+			}
+			.pin .val {
+				margin-top: -10px;
+			}
+			.pins {
+				width: 470px;
+				margin: 0 auto;
+			}
+
+.pins
+{
+	width: 400;
+	height: 400;
+}
+
+div{
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+}

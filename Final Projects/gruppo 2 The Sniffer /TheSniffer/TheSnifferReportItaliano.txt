@@ -1,0 +1,24 @@
+TheSniffer.
+
+Quanto e come utilizziamo oggi la rete Internet?
+
+Il nostro progetto consiste in uno sniffer fisico, cioè un apparecchio che, collegato a una rete LAN, intercetta, quntifica e memorizza il traffico passante per la rete e mostri un output della quantità di traffico.
+
+MVP (Minimum Viable Product)
+L'obiettivo che ci eravamo dati agli al
+bori del progetto era di creare un software che trovasse risposta alla seguente domanda:
+Quanto traffico viene generato dagli host connessi alla rete? E come posso visualizzarlo fisicamente?
+Sviluppare un software che sniffi il traffico, ed interfacciarlo con la YÚN e con una pagina web che visualizzi in tempo reale la quantità di traffico generato da un host connesso alla rete.
+
+HARDWARE
+Nel dettaglio lo sniffer è realizzato interamente in Polimetilmetacrilato (plexiglass). È costituito da un supporto (10x10x10 circa) con all'interno una scheda Arduino YÚN, collegata al pc, e da un tubo di 30 cm circa, dove alla base vi è una ventola di computer da 12 volt, che è a sua volta collegata alla YÚN. La ventola regola la sua potenza in base alla quantità di traffico che lo Sniffer intercetta. Maggiore è il traffico e maggiore sarà la potenza della ventola. All'interno del tubo, vi sono alcune palline di polistirolo che raggiungeranno una certa altezza a seconda della potenza della ventola.
+L'altezza delle palline e l'intensità con cui ruotano all'interno dello Sniffer, sono l'output visivo della quantità di traffico della rete.
+
+SOFTWARE
+Per lo sviluppo del software che utilizza lo sniffer, siamo partiti da un programma scritto in C distribuito dai ragazzi di tcpdump, sniffex.c, che utilizza gli algoritmi di tcpdump per intercettare il traffico della rete. Abbiamo modificato il programma, eliminando l'output superfluo ai nostri fini e aggiungendo la velocità di scaricamento dati e il numero di dati scaricati. Il programma salva i dati in un database ed è interfacciato, tramite php, con una pagina web che visualizza l'output digitale. Poi ancora il programma in C è collegato alla YÚN, sulla quale vi è caricato un programma che varia la potenza della ventola in base a quanto traffico è 'sniffato'.
+
+APPLICAZIONI
+Cosa si può fare con TheSniffer?
+- Controllare il traffico di una rete LAN: con lo sniffer si può fare una rapida statistica dell'utilizzo della banda di una rete domestica, scolastica, di una classe o di un laboratorio, per avere contezza di quanto viene utilizzato Internet.
+- Controllare il traffico della propria rete domestica permette anche di tenere sotto controllo la quantità di dati utilizzati se si ha una tariffa con limitazione di GB mensili.
+- Monitorare quali sono i siti che si stanno visualizzando sulla rete (utile come parental control).

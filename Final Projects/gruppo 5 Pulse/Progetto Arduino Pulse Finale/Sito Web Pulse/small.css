@@ -1,0 +1,112 @@
+/***************************************************************/
+/*            Regole per i dispositivi più piccoli             */
+/***************************************************************/
+
+body {
+	color: #333;
+	font-size: 90%;
+	font-family: "Orator Std Medium", Arial, Sans-Serif;
+	background-image: url(img/pulse1.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: white;
+}
+
+h1, h2 {
+	color: crimson;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	font-size: 20px;
+}
+
+p {
+	margin-bottom: 5px;
+}
+
+caption {
+	caption-side: bottom;
+	color: #3b085f;
+}
+
+th {
+	background-color: #aaa;
+}
+
+td {
+	background-color: #ddd;
+}
+
+th, td {
+	padding: 3px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+figure {
+	text-align: center;
+}
+
+figure img {
+	width: 80%;
+	height: 80%;
+}
+
+figcaption {
+	color: #3b085f;
+}
+
+#container {
+	width: auto;
+	background-color: white;
+}
+
+#header {
+	height: 150px;
+	background-image: url(img/pulselogo2.jpg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 0% 50%;
+	border-bottom: 2px solid black;	
+	background-color: white;
+}
+
+
+#content-l {
+	float: none;
+	background-color: white;
+}
+
+#content-r {
+	float: none;
+	background-color: white;
+}
+
+#footer {
+	border-top: 1px dashed #3b085f;
+	font-size: 0.8em;
+	font-style: italic;
+	background-color: white;
+}
+
+a:link, a:visited {
+	color: #3b085f;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration:none;
+	border-bottom: 1px dashed #3b085f;
+}
+
+span {
+	color: #3b085f;
+	text-decoration: underline;
+}
+
+			rect {
+				fill: red;
+			}
+
