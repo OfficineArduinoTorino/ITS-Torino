@@ -5,7 +5,7 @@ description: Realizazzione di un piccolo modellino domotico
 img: /img/3_Breadboard.png
 ---
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6QXBt6K9xrw" frameborder="0" allowfullscreen></iframe>
 
 # Gruppo:
 - Bovio 
