@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="header-bar">
+  <!--<h1>Fablab For Kids</h1>
+  <h2>Future generazioni alle prese con nuove tecnologie</h2>
+ <br/>
+  <hr>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>-->
+  <h1> Mobile App Design</h1>
+  <h2> A 80 hours introduction to Physical Computing and Digital Fabrication</h2>
+  <br/>
+  <h3>This site is a quick sumup of the introduction Course to Physical Computing and Digital Fabrication organized by <a href="local.arduino.cc/torino">Officine Arduino</a> between January and May 2015 for <a href="http://www.its-ictpiemonte.it/">ITS Torino</a>, inside their Mobile App Design. 
+  <br/>
+  The Course was developed by Officine Arduino and managred by Davide Gomba. Giacomo Leonzi held the Arduino and Processing part, while Elena Pressaco and Gianluca Pugliese followed the Introduction and use of the lasercut and 3D printing machines. 
+ <br/>
+  You can give a look at the <a href="{{site.baseurl}}/2015/05/15/programme.html">2015 programme (italian)</a> or <a href="{{site.baseurl}}/schede/"> browse the projects in the documentation provided by the students ("schede" section)</a>. In this very same github (master branch) you can find designs and sourcecodes.
+  </h3>
+  <br/>
+</div>
+
+
+<ul class="post-list">
+    {% for post in paginator.posts %}
+      <li>
+        <!--<img src="{{site.baseurl}}/img/{{post.img}}" height="600" width="600" align="middle">-->
+        <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+        <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
+        <p>{{ post.description }}</p>
+        <br/>
+        <hr/>
+      </li>
+    {% endfor %}
+</ul>

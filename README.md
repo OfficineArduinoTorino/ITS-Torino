@@ -1,2 +1,3 @@
-# ITS-Torino
-A place to host teaching materials for the 2014-2015 ITS/Torino course on Physical Computing
+# ITS 2015
+
+A quick sum up of the projects made from the students from the "Mobile App Design" from ITS of Torino in the 2014-15 course.   

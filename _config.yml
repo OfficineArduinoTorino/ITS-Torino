@@ -1,0 +1,28 @@
+# Site settings
+title: ITS Torino 2014-15
+email: ciao@arduino.cc
+description: > # this means to ignore newlines until "baseurl:"
+  una documentazione temporanea sul percorso di Physical Computing del corso ITS Mobile APP Design 2014 - 2015 
+baseurl: /ITS-Torino # the subpath of your site, e.g. /blog/
+url:  # the base hostname & protocol for your site
+twitter_username: twitter_username
+github_username:  github_username
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+
+# Pagination
+paginate: 15
+paginate_path: "/blog/page:num/"
+
+
+collections:
+  schede:
+    output: true
+    permalink: /schede/:path/
+#  poetry:
+#   output: true
+#   permalink: /poetry/:path/
+
+
